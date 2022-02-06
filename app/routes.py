@@ -61,7 +61,7 @@ def model(url):
 #model = load('model.joblib')
 
 class Form(FlaskForm):
-    url = StringField('Enter your text', validators=[DataRequired()])
+    url = StringField('Enter the url', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 @app.route('/', methods=['GET', 'POST'])
