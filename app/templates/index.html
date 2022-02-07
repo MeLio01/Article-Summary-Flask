@@ -8,17 +8,14 @@
     <body>
         <div class="form">
             <form action="/" method="POST">
-                <p>
-                    {{ form.url.label }}<br>
-                    {{ form.url(size=64) }}<br>
-                </p>
-                <p>{{ form.submit() }}</p>
+                <h3>{{ form.url.label }}</h3>
+                {{ form.url(size=64) }}<br><br>
+                <h3>{{ form.submit() }}</h3><br><br>
             </form>
         </div>
         <div>
             {% if text %}
-                <h2>Summary:</h2>
-                <br>
+                <h3>Summary:</h3>
                 <p>{{ text }}</p>
             {% endif %}
             </div>
