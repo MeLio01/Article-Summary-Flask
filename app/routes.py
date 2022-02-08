@@ -1,8 +1,10 @@
 from app import app
-from flask import redirect, render_template, request, url_for, flash
+from flask import redirect, render_template, url_for, flash
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
-from wtforms.validators import DataRequired,ValidationError, Email, EqualTo
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
+from flask import request, jsonify, Response
+import os
 #import pickle
 #from joblib import dump, load
 
@@ -73,3 +75,16 @@ def index():
         flash('Sucess')
         return render_template('index.html', form=form, text=result)
     return render_template('index.html', form=form)
+
+@app.route('/api', methods=['POST'])
+def get_summary():
+    header = request.headers.get("Authorization")
+    if header != os.environ.get('AUTH_PASSWORD'):
+        return Response("Invalid password", 400)
+    req = request.json
+    try:
+        url = req['url']
+        result = model(url)
+        return jsonify({'result': result})
+    except Exception as e:
+        return Response("Error", 400)
