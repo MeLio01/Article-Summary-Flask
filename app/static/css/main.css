@@ -1,0 +1,33 @@
+body {
+    text-align: center;
+    margin-top: 7%;
+    background-image: url('bg.png');
+}
+
+
+.bg {
+    width: 100%;
+    font-family: "Arial";
+    background-size: 100% 100%;
+    background-position: top center;
+    color: white;
+}
+
+.InputStyle {
+    border-radius: 25px;
+    border: solid 1px rgb(255, 255, 255);
+    
+    width: 300px;
+    padding: 10px 20px;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 12px;
+    color: rgb(0, 0, 0)
+}
+
+.Summary{
+    margin-left: 20%;
+    margin-right: 20%;
+}

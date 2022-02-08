@@ -62,19 +62,21 @@ def model(url):
 #model = pickle.load(open('model.pkl', 'rb'))
 #model = load('model.joblib')
 
-class Form(FlaskForm):
-    url = StringField('Enter the url', validators=[DataRequired()])
-    submit = SubmitField('Submit')
+#class Form(FlaskForm):
+#    url = StringField('Enter the url', validators=[DataRequired()])
+#    submit = SubmitField('Submit')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    form = Form()
+    #form = Form()
 
     if request.method == 'POST':
-        result = model(form.url.data)
+        url = request.form['URL']
+        result = model(url)
+        #result = model(form.url.data)
         flash('Sucess')
-        return render_template('index.html', form=form, text=result)
-    return render_template('index.html', form=form)
+        return render_template('index.html', text=result)
+    return render_template('index.html')
 
 @app.route('/api', methods=['POST'])
 def get_summary():

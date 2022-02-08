@@ -3,21 +3,25 @@
 <html>
     <head>
         <title>Summarizer</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     </head>
 
     <body>
-        <div class="form">
-            <form action="/" method="POST">
-                <h3>{{ form.url.label }}</h3>
-                {{ form.url(size=64) }}<br><br>
-                <h3>{{ form.submit() }}</h3><br><br>
-            </form>
-        </div>
-        <div>
-            {% if text %}
-                <h3>Summary:</h3>
-                <p>{{ text }}</p>
-            {% endif %}
+        <div class="bg text-center">
+            <h1>A &nbsp; R &nbsp; T &nbsp; I &nbsp; C &nbsp; L &nbsp; E  &nbsp; . &nbsp; S &nbsp; U &nbsp; M &nbsp; M &nbsp; A &nbsp; R &nbsp; I &nbsp; Z &nbsp; E &nbsp; R</h1>
+            <p>Get Summary of any Article</p><br><br>
+            <div class="form">
+                <form action="/" method="POST">
+                    <input class="InputStyle" placeholder="Enter URL" type="text" name="URL" id="url"><br><br>
+                    <input type="submit" value="Submit"><br><br><br>
+                </form>
             </div>
+            <div>
+                {% if text %}
+                    <h2>Summary:</h2>
+                    <p class="Summary">{{ text }}</p>
+                {% endif %}
+                </div>
+        </div>
     </body>
 </html>
