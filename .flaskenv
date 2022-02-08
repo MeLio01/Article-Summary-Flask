@@ -1,2 +1,0 @@
-FLASK_APP=summ.py
-AUTH_PASSWORD=cerdoboss
