@@ -52,11 +52,20 @@ def model(url):
         
     rank = sentence_rank(data)
 
-    n = 3
-    result = ''
+    n = 5
+    temp = ''
     sort_list = np.argsort(rank)[::-1][:n]
     for i in range(n):
-        result += '{} '.format(sentence_list[sort_list[i]])
+        text = sentence_list[sort_list[i]]
+        temp += text + ' '
+    
+    result = ''
+    for i in range(0, len(temp)-1):
+        if(temp[i] == "\n"):
+            result += ' '
+        else:
+            result += temp[i]
+    
     return result
 
 #model = pickle.load(open('model.pkl', 'rb'))
